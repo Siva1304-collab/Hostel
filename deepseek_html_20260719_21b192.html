@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haven Hostel · stay simple</title>
+  <!-- Font Awesome (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: #f8f7f4;
+      color: #1e1e2a;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ----- header / navigation ----- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #1e2b3c;
+    }
+    .logo i {
+      color: #c97b63;
+      margin-right: 6px;
+    }
+    .logo span {
+      color: #c97b63;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2c3e4e;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      color: #c97b63;
+    }
+    .nav-links .btn-outline {
+      border: 1.5px solid #c97b63;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      color: #c97b63;
+      font-weight: 600;
+    }
+    .nav-links .btn-outline:hover {
+      background: #c97b63;
+      color: #fff;
+      border-color: #c97b63;
+    }
+
+    /* ----- hero ----- */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3rem 0 4rem 0;
+      gap: 2.5rem;
+    }
+    .hero-content {
+      flex: 1 1 400px;
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      color: #1e2b3c;
+    }
+    .hero-content h1 i {
+      color: #c97b63;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #3e4f5e;
+      max-width: 450px;
+      margin-bottom: 2rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .btn-primary {
+      background: #c97b63;
+      color: #fff;
+      border: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 12px rgba(201, 123, 99, 0.3);
+    }
+    .btn-primary:hover {
+      background: #b0644e;
+      transform: scale(1.02);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid #d0cdc4;
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #2c3e4e;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: #c97b63;
+      color: #c97b63;
+    }
+    .hero-image {
+      flex: 1 1 380px;
+      background: #e5dfd6;
+      border-radius: 28px;
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: linear-gradient(145deg, #ded7cb, #eee8df);
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.08);
+      padding: 1.5rem;
+    }
+    .hero-image i {
+      font-size: 6rem;
+      color: #b7a99a;
+      opacity: 0.6;
+    }
+    .hero-image .img-placeholder {
+      text-align: center;
+      color: #4d4036;
+    }
+    .hero-image .img-placeholder span {
+      display: block;
+      font-weight: 300;
+      letter-spacing: 1px;
+      margin-top: 0.5rem;
+    }
+
+    /* ----- features / services ----- */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin: 3rem 0 1.2rem 0;
+      color: #1e2b3c;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title i {
+      color: #c97b63;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 3rem 0;
+    }
+    .feature-card {
+      background: #ffffffec;
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      transition: 0.25s ease;
+      border: 1px solid #f0ede7;
+    }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px -12px rgba(0,0,0,0.08);
+      border-color: #dccfc2;
+    }
+    .feature-card i {
+      font-size: 2.4rem;
+      color: #c97b63;
+      margin-bottom: 0.8rem;
+    }
+    .feature-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .feature-card p {
+      color: #4d5b68;
+      font-size: 0.95rem;
+    }
+
+    /* ----- room cards (hostel rooms) ----- */
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0 4rem 0;
+    }
+    .room-card {
+      background: #fff;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+      transition: 0.25s ease;
+      border: 1px solid #f0ede7;
+    }
+    .room-card:hover {
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.08);
+      border-color: #dccfc2;
+    }
+    .room-img {
+      height: 170px;
+      background: #d6cec2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5b4d40;
+      font-size: 2.8rem;
+      background-image: linear-gradient(145deg, #dbd2c5, #e8e0d5);
+      position: relative;
+      overflow: hidden;
+    }
+    .room-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .room-img .photo-label {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 2px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(4px);
+    }
+    .room-info {
+      padding: 1.5rem 1.5rem 1.8rem;
+    }
+    .room-info h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .room-info .badge {
+      background: #ede8e0;
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #4d4036;
+      margin: 0.4rem 0 0.6rem 0;
+    }
+    .room-info .price {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #1e2b3c;
+    }
+    .room-info .price small {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #5b6b7a;
+    }
+    .room-info .amenities {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 0.8rem 0 1.2rem 0;
+      color: #3e4f5e;
+      font-size: 0.9rem;
+    }
+    .room-info .amenities i {
+      margin-right: 5px;
+      color: #b7a086;
+    }
+    .btn-small {
+      background: transparent;
+      border: 1.5px solid #c97b63;
+      border-radius: 40px;
+      padding: 0.4rem 1.5rem;
+      color: #c97b63;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+    .btn-small:hover {
+      background: #c97b63;
+      color: #fff;
+    }
+
+    /* ----- photo gallery section (new) ----- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0 3rem 0;
+    }
+    .gallery-item {
+      border-radius: 24px;
+      overflow: hidden;
+      background: #e5dfd6;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      border: 1px solid #f0ede7;
+      transition: 0.2s;
+      position: relative;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: linear-gradient(145deg, #ded7cb, #f0ebe2);
+    }
+    .gallery-item:hover {
+      transform: scale(1.01);
+      box-shadow: 0 16px 30px -8px rgba(0,0,0,0.06);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-item .gallery-icon {
+      font-size: 4rem;
+      color: #b7a99a;
+      opacity: 0.5;
+    }
+    .gallery-item .photo-label {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      padding: 4px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      backdrop-filter: blur(3px);
+      letter-spacing: 0.3px;
+    }
+
+    /* ----- about / callout ----- */
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+      background: #f1eee8;
+      border-radius: 48px;
+      padding: 3rem 2.5rem;
+      margin: 2rem 0 3.5rem 0;
+    }
+    .about-text {
+      flex: 2 1 300px;
+    }
+    .about-text h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+    .about-text p {
+      color: #344553;
+      max-width: 500px;
+    }
+    .about-stats {
+      flex: 1 1 200px;
+      display: flex;
+      gap: 2.5rem;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-item .number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1e2b3c;
+    }
+    .stat-item .label {
+      color: #4f5f6e;
+      font-weight: 400;
+    }
+
+    /* ----- footer ----- */
+    footer {
+      border-top: 1px solid #e1dbd1;
+      padding: 2.5rem 0 1.8rem 0;
+      margin-top: 2rem;
+      color: #3e4f5e;
+    }
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .footer-col h4 {
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #1e2b3c;
+    }
+    .footer-col p, .footer-col a {
+      color: #4b5c6b;
+      text-decoration: none;
+      display: block;
+      margin: 0.2rem 0;
+    }
+    .footer-col a:hover {
+      color: #c97b63;
+    }
+    .footer-social i {
+      font-size: 1.3rem;
+      margin-right: 0.8rem;
+      color: #8d7e6e;
+      transition: 0.2s;
+    }
+    .footer-social i:hover {
+      color: #c97b63;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+      color: #6e7d8a;
+      border-top: 1px solid #e1dbd1;
+      padding-top: 1.5rem;
+    }
+
+    /* responsiveness */
+    @media (max-width: 700px) {
+      .hero-content h1 { font-size: 2.5rem; }
+      .navbar { flex-direction: column; align-items: stretch; }
+      .nav-links { justify-content: center; }
+      .about-section { flex-direction: column; text-align: center; }
+      .about-stats { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- header -->
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <i class="fas fa-bed"></i> Haven<span>Hostel</span>
+        </div>
+        <div class="nav-links">
+          <a href="#">Rooms</a>
+          <a href="#">Amenities</a>
+          <a href="#">Gallery</a>
+          <a href="#">Contact</a>
+          <a href="#" class="btn-outline"><i class="fas fa-calendar-check"></i> Book now</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>
+          <i class="fas fa-door-open"></i> <br />
+          Your home <br />away from home.
+        </h1>
+        <p>Comfort, community, and culture – modern hostel living in the heart of the city.</p>
+        <div class="hero-actions">
+          <button class="btn-primary"><i class="fas fa-arrow-right"></i> View rooms</button>
+          <button class="btn-secondary"><i class="fas fa-phone-alt"></i> Contact</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="img-placeholder">
+          <i class="fas fa-tree"></i>
+          <span>common area · garden view</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- features -->
+    <div class="section-title">
+      <i class="fas fa-leaf"></i> Why Haven
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-wifi"></i>
+        <h3>High-speed WiFi</h3>
+        <p>Stay connected with fiber-optic internet throughout the hostel.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-utensils"></i>
+        <h3>Community kitchen</h3>
+        <p>Fully equipped kitchen, free tea & coffee all day.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>24/7 security</h3>
+        <p>Secure keycard access, lockers, and night staff.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-map-pin"></i>
+        <h3>City center</h3>
+        <p>Walk to cafes, museums, and public transport.</p>
+      </div>
+    </div>
+
+    <!-- rooms section -->
+    <div class="section-title">
+      <i class="fas fa-bed"></i> Our rooms
+    </div>
+    <div class="rooms-grid">
+
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="4-bed dorm" />
+          <span class="photo-label"><i class="fas fa-camera"></i> dorm</span>
+        </div>
+        <div class="room-info">
+          <h3>4‑bed dorm</h3>
+          <span class="badge"><i class="fas fa-tag"></i> shared</span>
+          <div class="price">$35 <small>/ night</small></div>
+          <div class="amenities">
+            <span><i class="fas fa-wifi"></i> WiFi</span>
+            <span><i class="fas fa-lock"></i> Locker</span>
+            <span><i class="fas fa-fan"></i> AC</span>
+          </div>
+          <button class="btn-small">Check availability</button>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="6-bed dorm" />
+          <span class="photo-label"><i class="fas fa-camera"></i> dorm</span>
+        </div>
+        <div class="room-info">
+          <h3>6‑bed dorm</h3>
+          <span class="badge"><i class="fas fa-tag"></i> shared</span>
+          <div class="price">$28 <small>/ night</small></div>
+          <div class="amenities">
+            <span><i class="fas fa-wifi"></i> WiFi</span>
+            <span><i class="fas fa-lock"></i> Locker</span>
+            <span><i class="fas fa-fan"></i> Fan</span>
+          </div>
+          <button class="btn-small">Check availability</button>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://images.unsplash.com/photo-1582719471384-894fbb16d2d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Private single" />
+          <span class="photo-label"><i class="fas fa-camera"></i> private</span>
+        </div>
+        <div class="room-info">
+          <h3>Private single</h3>
+          <span class="badge"><i class="fas fa-tag"></i> private</span>
+          <div class="price">$65 <small>/ night</small></div>
+          <div class="amenities">
+            <span><i class="fas fa-wifi"></i> WiFi</span>
+            <span><i class="fas fa-tv"></i> TV</span>
+            <span><i class="fas fa-shower"></i> Ensuite</span>
+          </div>
+          <button class="btn-small">Check availability</button>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Double private" />
+          <span class="photo-label"><i class="fas fa-camera"></i> private</span>
+        </div>
+        <div class="room-info">
+          <h3>Double private</h3>
+          <span class="badge"><i class="fas fa-tag"></i> private</span>
+          <div class="price">$85 <small>/ night</small></div>
+          <div class="amenities">
+            <span><i class="fas fa-wifi"></i> WiFi</span>
+            <span><i class="fas fa-tv"></i> TV</span>
+            <span><i class="fas fa-shower"></i> Ensuite</span>
+          </div>
+          <button class="btn-small">Check availability</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- photo gallery: hostel, kitchen, parking, common areas -->
+    <div class="section-title">
+      <i class="fas fa-images"></i> Hostel photos
+    </div>
+    <div class="gallery-grid">
+      <!-- kitchen photo -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1556911220-bda9a0d4c8a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Community kitchen" />
+        <span class="photo-label"><i class="fas fa-utensils"></i> Kitchen</span>
+      </div>
+      <!-- hostel common area / lounge -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hostel lounge" />
+        <span class="photo-label"><i class="fas fa-couch"></i> Lounge</span>
+      </div>
+      <!-- parking area -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1604079282732-806c7a2f2c45?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Parking area" />
+        <span class="photo-label"><i class="fas fa-parking"></i> Parking</span>
+      </div>
+      <!-- outdoor / garden (hostel surroundings) -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hostel garden" />
+        <span class="photo-label"><i class="fas fa-tree"></i> Garden</span>
+      </div>
+      <!-- additional: rooftop or common area -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Rooftop terrace" />
+        <span class="photo-label"><i class="fas fa-umbrella"></i> Rooftop</span>
+      </div>
+      <!-- extra: reception / entrance -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Reception" />
+        <span class="photo-label"><i class="fas fa-door-open"></i> Reception</span>
+      </div>
+    </div>
+
+    <!-- about / stats -->
+    <div class="about-section">
+      <div class="about-text">
+        <h2><i class="fas fa-heart" style="color: #c97b63;"></i> More than a bed</h2>
+        <p>We curate events, city tours, and community dinners. Our hostel is a hub for travellers who want to connect and explore.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="number">1.2k+</div>
+          <div class="label">happy guests</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">4.9★</div>
+          <div class="label">average rating</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">12</div>
+          <div class="label">nationalities</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4><i class="fas fa-bed" style="color:#c97b63;"></i> Haven Hostel</h4>
+          <p>123 Wanderlust Ave,<br />New York, NY 10001</p>
+          <p><i class="fas fa-phone-alt"></i> +1 (555) 273‑8284</p>
+          <p><i class="fas fa-envelope"></i> stay@havenhostel.com</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick links</h4>
+          <a href="#">Rooms & rates</a>
+          <a href="#">Amenities</a>
+          <a href="#">Group bookings</a>
+          <a href="#">Careers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Stay connected</h4>
+          <div class="footer-social">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-x-twitter"></i>
+            <i class="fab fa-tiktok"></i>
+          </div>
+          <p style="margin-top: 0.8rem;">Subscribe to our newsletter</p>
+          <button class="btn-small" style="margin-top: 0.3rem;">Sign up</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Haven Hostel – designed with <i class="fas fa-heart" style="color:#c97b63;"></i> for wanderers.
+      </div>
+    </footer>
+
+  </div> <!-- end container -->
+</body>
+</html>
